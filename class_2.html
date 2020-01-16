@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class-javascript</title>
+	<style type="text/css">
+		td{
+			padding:10px 40px 10px 2px;
+		}
+		#div_form{
+			margin: 6% 26% 2% 26%;
+			padding: 2% 3% 1% 3%;
+			border-radius: 50px;
+			border-style: solid;
+			border-color: gray;
+		}
+		input[type=text]{
+			background-color: transparent;
+			border: none;
+			border-bottom: 1px solid black;
+		}
+		#btn{
+			width: 80%;
+			height: 35px;
+			border-radius: 10px;
+			border-style: none;
+			background-color: #bdc3c7;
+		}
+	</style>
+	<script type="text/javascript">
+		class Person{
+	    	constructor(name, lastName, birthday, birthplace, phone, adress){
+		        this.name = name;
+		        this.lastName = lastName;
+		        this.birthday = birthday;
+		        this.birthplace = birthplace;
+		        this.phone = phone;
+		        this.adress = adress;
+		    }
+		}
+
+		function addRow(){
+			var name = document.getElementById("name").value;
+	        var lastName = document.getElementById("lastName").value;
+	        var birthday = document.getElementById("birthday").value;
+	        var birthplace = document.getElementById("birthplace").value;
+	        var phone = document.getElementById("phone").value;        
+	        var adress = document.getElementById("adress").value;
+	        var test = 0;
+	        // #####name####
+		    if ( name=="") {
+		    	document.getElementById("l_name").style.color="red";
+		    	var test = 0;
+		    }
+		    else{
+		    	document.getElementById("l_name").style.color="black";
+		    	var test = test+1;
+		    	document.getElementById("name").value="";
+		    }
+
+		    // ####lastName####
+		    if ( lastName=="") {
+		    	document.getElementById("l_lastName").style.color="red";
+		    	var test = 0;
+		    }
+		    else{
+		    	document.getElementById("l_lastName").style.color="black";
+		    	var test = test+1;
+		    	document.getElementById("lastName").value="";
+		    }
+
+		    // ####birthday####
+		    if ( birthday=="") {
+		    	document.getElementById("l_birthday").style.color="red";
+		    	var test = 0;
+		    }
+		    else{
+		    	document.getElementById("l_birthday").style.color="black";
+		    	var test = test+1;
+		    	document.getElementById("birthday").value="";
+		    }
+
+		    // ####birthday####
+		    if ( birthplace=="") {
+		    	document.getElementById("l_birthplace").style.color="red";
+		    	var test = 0;
+		    }
+		    else{
+		    	document.getElementById("l_birthplace").style.color="black";
+		    	var test = test+1;
+		    	document.getElementById("birthplace").value="";
+		    }
+
+		    // ####phone####
+		    if ( phone=="") {
+		    	document.getElementById("l_phone").style.color="red";
+		    	var test = 0;
+			}
+		    else{
+		    	document.getElementById("l_phone").style.color="black";
+		    	var test = test+1;
+		    	document.getElementById("phone").value=""; 
+
+		    	
+		    }
+
+		    // ####adress####
+		    if ( adress=="") {
+		    	document.getElementById("l_adress").style.color="red";
+		    	var test = 0;
+		    }
+		    else{
+		    	document.getElementById("l_adress").style.color="black";
+		    	var test = test+1;
+		    	document.getElementById("adress").value="";
+		    }
+
+
+		    if ( test==6) {
+		    	let row = "<tr>";
+			    let person = new Person(
+			        // document.getElementById("name").value,
+			        // document.getElementById("lastName").value,
+			        // document.getElementById("birthday").value,
+			        // document.getElementById("birthplace").value,
+			        // document.getElementById("phone").value,        
+			        // document.getElementById("adress").value
+			        name,
+					lastName,
+					birthday,
+					birthplace,
+					phone,
+					adress,
+			    )
+			    row += "<td>"+person.name+"</td>";
+			    row += "<td>"+person.lastName+"</td>";
+			    row += "<td>"+person.birthday+"</td>";
+			    row += "<td>"+person.birthplace+"</td>";
+			    row += "<td>"+person.phone+"</td>";
+			    row += "<td>"+person.adress+"</td>";
+			    row += "</tr>";
+			    document.getElementById("tabl2").innerHTML += row;
+		    }
+		}
+	</script>
+</head>
+<body>
+	<section>
+		<div id="div_form">
+			<center>
+				<form name="form_1" id="form_1">
+					<table>
+						<tr>
+							<td>
+								<label id="l_name">Nom :</label>
+							</td>
+							<td>
+								<input type="text" id="name" name="n_nom">
+							</td>
+							<td>
+								<label id="l_lastName" >Prénom :</label>
+							</td>
+							<td>
+								<input type="text" id="lastName" name="n_prenom">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label id="l_birthday">Date de naissance :</label>
+							</td>
+							<td>
+								<input type="text" id="birthday" name="n_date">
+							</td>
+							<td>
+								<label id="l_birthplace">Lieu de naissance :</label>
+							</td>
+							<td>
+								<input type="text" id="birthplace" name="n_lieu">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label id="l_phone">Numéro de téléphone :</label>
+							</td>
+							<td>
+								<input type="text" id="phone" name="n_numero">
+							</td>
+							<td>
+								<label id="l_adress">Addresse :</label>
+							</td>
+							<td>
+								<input type="text" id="adress" name="n_addresse">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="4">
+								<center>
+									<input type="button" id="btn" value="ajouter" onclick="addRow()">
+								</center>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</center>
+		</div>
+	</section>
+	<section>
+		<div id="div_tabl">
+			<center>
+				<table border="1px solid" id="tabl2">
+					<tr>
+						<td>nom</td>
+						<td>prénom</td>
+						<td>date de naissance</td>
+						<td>lieu de naissance</td>
+						<td>numéro de téléphone</td>
+						<td>addresse</td>
+
+					</tr>
+				</table>
+			</center>
+		</div>
+	</section>
+</body>
+</html>
